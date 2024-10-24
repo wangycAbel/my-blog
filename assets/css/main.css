@@ -1,0 +1,16 @@
+/* assets/styles/main.css */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --padding-large: 20px;
+  }
+  
+  .container {
+    background-color: var(--primary-color);
+    padding: var(--padding-large);
+  
+    .header {
+      color: var(--secondary-color);
+    }
+  }
+  
