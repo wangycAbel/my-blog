@@ -20,7 +20,9 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@nuxt/content-edge": "^2.13.4-28821025.17ab478",
     "@types/node": "^22.7.9",
+    "postcss-normalize": "^13.0.1",
     "typescript": "^5.6.3"
   }
 }

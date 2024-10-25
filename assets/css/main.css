@@ -1,16 +1,17 @@
 /* assets/styles/main.css */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --padding-large: 20px;
-  }
-  
-  .container {
-    background-color: var(--primary-color);
-    padding: var(--padding-large);
-  
-    .header {
-      color: var(--secondary-color);
-    }
-  }
-  
+  --background-color: #eaeaea;
+  --text-color: #333333;
+  --card-color: #d3d3d3;
+  --important-color: #ffb6c1;
+  --sub-color: #b19cd9;
+  --primary-color: #8a2be2;
+  --secondary-color: #ffe4e1;
+  --white-color: #fff;
+  --black-color: #fff;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}

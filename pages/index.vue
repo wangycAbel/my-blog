@@ -1,15 +1,13 @@
 <template>
-  <div>首页</div>
-  <div v-if="articles" v-for="article in articles" :key="article._path">
-    <NuxtLink :to="article._path">
-      <h2>{{ article.title }}</h2>
-    </NuxtLink>
+  <div class="index-container">
+    <div class="banner"></div>
+    <div class="skill-tree"></div>
+    <div class="time-pie"></div>
+    <div class="artiacl-list"></div>
+    <div class="inspration"></div>
   </div>
 </template>
-<script lang="ts" setup>
-const { data: articles } = await useAsyncData(
-  "content",
-  () => queryContent().find() // 使用 `queryContent()` API 获取内容
-);
-console.log(articles.value);
-</script>
+
+<script lang="ts" setup></script>
+
+<style scoped></style>
