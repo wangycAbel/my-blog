@@ -16,7 +16,7 @@
   overflow: hidden;
   .section {
     box-sizing: border-box;
-    padding: 0 calc(var(--base-height) * 8) calc(var(--base-height) * 8);
+    padding: 0 0 calc(var(--base-height) * 8);
     text-align: center;
     font-size: calc(var(--base-height) * 8);
   }

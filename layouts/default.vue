@@ -2,18 +2,19 @@
   <div class="header-box">
     <Header></Header>
   </div>
-  <div class="main-contianer">
+  <div class="main-container">
     <slot />
   </div>
   <Footer></Footer>
 </template>
 <style scoped>
-.header-box{
+.header-box {
   width: 100vw;
   position: fixed;
 }
-.main-contianer{
+.main-container {
   margin-top: 66px;
+  box-sizing: border-box;
+  padding: 0 calc(var(--base-height) * 8);
 }
-
 </style>

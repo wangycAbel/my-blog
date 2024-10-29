@@ -1,5 +1,5 @@
 <template>
-  <div class="header-contianer">
+  <div class="header-container">
     <ul class="menu">
       <li
         class="menu-item"
@@ -23,7 +23,7 @@
         :class="nowRoute === '/project' ? 'light' : ''"
         @click="pageJump('project')"
       >
-        <div class="menu-text animate__animated">功程·Project</div>
+        <div class="menu-text animate__animated">工程·Project</div>
       </li>
       <li
         class="menu-item"
@@ -57,7 +57,7 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.header-contianer {
+.header-container {
   display: flex;
   padding: 0 calc(var(--base-height) * 4);
   flex-wrap: wrap;
