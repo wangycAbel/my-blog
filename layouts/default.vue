@@ -1,7 +1,19 @@
 <template>
-  <div>
+  <div class="header-box">
     <Header></Header>
-    <slot />
-    <Footer></Footer>
   </div>
+  <div class="main-contianer">
+    <slot />
+  </div>
+  <Footer></Footer>
 </template>
+<style scoped>
+.header-box{
+  width: 100vw;
+  position: fixed;
+}
+.main-contianer{
+  margin-top: 66px;
+}
+
+</style>

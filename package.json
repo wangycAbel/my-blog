@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.13.4",
+    "animate.css": "^4.1.1",
     "autoprefixer": "^10.4.20",
     "nuxt": "^3.13.2",
     "postcss": "^8.4.47",
@@ -21,8 +22,10 @@
   },
   "devDependencies": {
     "@nuxt/content-edge": "^2.13.4-28821025.17ab478",
+    "@nuxt/icon": "^1.6.1",
     "@types/node": "^22.7.9",
     "postcss-normalize": "^13.0.1",
+    "postcss-pxtorem": "^6.1.0",
     "typescript": "^5.6.3"
   }
 }
