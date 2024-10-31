@@ -4,7 +4,6 @@ import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxt/content-edge", "@nuxt/icon"],
-
   imports: {
     autoImport: true, // 确保开启自动导入功能
   },
@@ -12,6 +11,7 @@ export default defineNuxtConfig({
   css: [
     "animate.css",
     "@/assets/css/main.css", // 引入全局样式
+    "@/assets/css/font.css",
   ],
 
   postcss: {

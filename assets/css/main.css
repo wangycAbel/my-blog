@@ -6,7 +6,15 @@
   --text-color: #4b4b4b;
   --secondary-background-color: #e3e6ea;
   --base-height: 8px;
+  --white-color: #fff;
 }
+@font-face {
+  font-family: "daci";
+  src: url("@/assets/font/daci.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;

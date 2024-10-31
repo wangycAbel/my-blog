@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "daci";
+  font-weight: normal;
+  src: url("../font/daci.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "itim-Regular";
+  src: url("../font/itim-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Knewave-Regular";
+  src: url("../font/Knewave-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chewy-Regular";
+  src: url("../font/Chewy-Regular.ttf") format("truetype");
+}
