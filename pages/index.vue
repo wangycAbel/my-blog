@@ -27,8 +27,8 @@
     </div>
     <div class="section skill-tree">
       <div class="svg-box">
-        <svg viewBox="0 0 400 200">
-          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+        <svg viewBox="0 0 600 300">
+          <text x="300" y="150" text-anchor="middle" dominant-baseline="middle">
             SKILL TREE
           </text>
         </svg>
@@ -312,6 +312,7 @@ onBeforeUnmount(() => {
         letter-spacing: 10px;
         font-size: 128px;
         font-family: "Chewy-Regular";
+        line-height: 1em;
       }
       @keyframes stroke {
         0% {

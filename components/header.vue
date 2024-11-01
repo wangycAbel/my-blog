@@ -7,7 +7,7 @@
         @click="pageJump('')"
       >
         <div class="menu-text animate__animated">
-          <Icon name="maki:baseball" size="24" color="#f55b50" />
+          <Icon name="maki:baseball" color="#f55b50" />
           Abel
         </div>
       </li>
@@ -34,7 +34,7 @@
       </li>
     </ul>
     <div class="media" @click="toGithub">
-      <Icon name="icon-park-outline:github" size="32" color="#f55b50" />
+      <Icon name="icon-park-outline:github"  color="#f55b50" />
     </div>
   </div>
 </template>
@@ -95,6 +95,7 @@ onMounted(() => {
     color: var(--accent-color);
     padding-top: 5.5px;
     cursor: pointer;
+    font-size: 32px;
   }
 }
 </style>
