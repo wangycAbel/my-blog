@@ -45,7 +45,7 @@ html {
 @media (min-width: 2560px) {
   /* 针对 4K 显示器的样式 */
   html {
-    font-size: 32px; /* 调整根字体大小以提高可读性 */
+    font-size: 28px; /* 调整根字体大小以提高可读性 */
   }
 }
 body {
