@@ -10,17 +10,121 @@
           <div class="line3"><span>LOOK</span> <span>FORWARD!</span></div>
         </div>
       </div>
-      <div class="information"></div>
+      <div class="information">
+        <div class="information-btn">Who Am I?</div>
+        <p>
+          <span data-text="Name">Name:</span>
+          <span data-text="王雨辰">王雨辰</span>
+          <span data-text="·Abel">·Abel</span>
+          <span data-text="前端漫游者·Front End Roamer"
+            >前端漫游者·Front End Roamer</span
+          >
+          <span data-text="野生棒球中年·Baseball">野生棒球中年·Baseball</span>
+          <span data-text="老二刺猿·Otaku">老二刺猿·Otaku</span>
+          <span data-text="福建 厦门·Xiamen">福建 厦门·Xiamen </span>
+        </p>
+      </div>
     </div>
-    <div class="section skill-tree">Skill-tree</div>
+    <div class="section skill-tree">
+      <div class="svg-box">
+        <svg viewBox="0 0 400 200">
+          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+            SKILL TREE
+          </text>
+        </svg>
+      </div>
+      <div class="skill-container">
+        <div class="skill-left">
+          <div class="js skill-box">
+            <span>JS & TS</span>
+            <div class="progress js"></div>
+          </div>
+          <div class="vue skill-box">
+            <span>VUE & NUXT</span>
+            <div class="progress vue"></div>
+          </div>
+          <div class="nest skill-box">
+            <span>NODEJS & NEXT</span>
+            <div class="progress node"></div>
+          </div>
+        </div>
+        <div class="photo skill-box" ref="slideBox">
+          <div class="slide slide1" ref="slide1"></div>
+          <div class="slide slide2" ref="slide2"></div>
+        </div>
+
+        <div class="skill-right">
+          <div class="CSS skill-box">
+            <span>CSS</span>
+            <div class="progress css"></div>
+          </div>
+          <div class="webpack skill-box">
+            <span>VITE & WEBPACK</span>
+            <div class="progress vite"></div>
+          </div>
+          <div class="microapp skill-box">
+            <span>MICRO APP</span>
+            <div class="progress micro"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section article">
+      <div class="article-title">Recent Article</div>
+      <div class="article-list">
+        <div class="article-box">
+          <span class="date">2022-02-02</span>
+          <div class="title">test</div>
+          <div class="sort">css</div>
+        </div>
+        <div class="article-box">
+          <span class="date">2022-02-02</span>
+          <div class="title">test</div>
+          <div class="sort">css</div>
+        </div>
+        <div class="article-box">
+          <span class="date">2022-02-02</span>
+          <div class="title">test</div>
+          <div class="sort">css</div>
+        </div>
+        <div class="article-box">
+          <span class="date">2022-02-02</span>
+          <div class="title">test</div>
+          <div class="sort">css</div>
+        </div>
+        <div class="article-box">
+          <span class="date">2022-02-02</span>
+          <div class="title">test</div>
+          <div class="sort">css</div>
+        </div>
+      </div>
+    </div>
     <div class="section time-pie">Time-pie</div>
-    <div class="section artiacl-list">Artiacl-list</div>
+
     <div class="section inspration">Inspration</div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+const slide1 = ref<HTMLElement>();
+const slide2 = ref<HTMLElement>();
+const slideBox = ref<HTMLElement>();
+const slide = (e: MouseEvent): void => {
+  const rect = slideBox.value?.getBoundingClientRect();
+  const windowX = e.clientX;
+  let x = windowX - rect!.left;
+  const sliedWidth = slideBox.value?.clientWidth;
+  console.log(sliedWidth);
+  console.log(x);
+  slide2.value!.style.left = -sliedWidth! + x + "px";
+};
+onMounted(() => {
+  slideBox.value?.addEventListener("mousemove", slide);
+});
+onBeforeUnmount(() => {
+  slideBox.value?.removeEventListener("mousemove", slide);
+});
 </script>
 
 <style scoped>
@@ -29,6 +133,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
   overflow: hidden;
   .section {
     box-sizing: border-box;
+    padding: 64px;
   }
   .banner {
     display: flex;
@@ -36,7 +141,6 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
     position: relative;
     height: calc(100vh - 65px);
     box-sizing: border-box;
-    padding: 64px;
     .text-box {
       .back-text {
         font-size: 136px;
@@ -72,6 +176,382 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
             color: var(--accent-color);
           }
         }
+      }
+    }
+    .information {
+      flex: 0 0 35%;
+      height: 100%;
+      position: relative;
+      .information-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "itim-Regular";
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+        font-size: 32px;
+        width: 240px;
+        height: 64px;
+        line-height: 64px;
+        border-radius: 15px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .information-btn::before {
+        content: "Who Am I?";
+        color: #00000000;
+        position: absolute;
+        right: 0;
+        border-radius: 15px;
+        bottom: 0;
+        width: 240px;
+        height: 0;
+        background: var(--accent-color);
+        transition: all 0.7s;
+        z-index: 0;
+      }
+
+      .information-btn:hover::before {
+        bottom: 0;
+        height: 64px;
+        color: var(--secondary-color);
+      }
+
+      .information-btn:hover ~ p span {
+        opacity: 1;
+        color: var(--text-color);
+        transform: translateY(0) translateZ(0);
+        transition-property: transform, opacity;
+        transition-duration: 1s, 0.2s;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1), linear;
+      }
+      .information-btn:hover ~ p span:after {
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 0.4s;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      p {
+        position: absolute;
+        font-size: 20px;
+        width: 280px;
+        overflow: hidden;
+        left: 50%;
+        top: calc(50% - 144px);
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        span {
+          position: relative;
+          display: inline-block;
+          color: var(--primary-color);
+          opacity: 0;
+          transform: translateY(15px) translateZ(0);
+          transition-property: transform, opacity;
+          transition-duration: 0.3s, 0.2s;
+          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1), linear;
+        }
+        span:after,
+        span:before {
+          position: absolute;
+          content: attr(data-text);
+          top: 0;
+          left: 0;
+          z-index: 1;
+          transform: translateZ(0);
+          will-change: opacity;
+        }
+        span:after {
+          color: var(--accent-color);
+          transition-property: opacity;
+          transition-duration: 0.1s;
+          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        span:nth-child(1) {
+          transition-delay: 0.7s;
+        }
+        span:nth-child(2) {
+          transition-delay: 0.6s;
+        }
+        span:nth-child(3) {
+          transition-delay: 0.5s;
+        }
+        span:nth-child(4) {
+          transition-delay: 0.4s;
+        }
+        span:nth-child(5) {
+          transition-delay: 0.3s;
+        }
+        span:nth-child(6) {
+          transition-delay: 0.2s;
+        }
+        span:nth-child(7) {
+          transition-delay: 0.1s;
+        }
+      }
+    }
+  }
+  .skill-tree {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .svg-box {
+      width: 100%;
+      height: 128px;
+      svg {
+        width: 100%;
+        height: 128px;
+        margin: auto;
+      }
+      svg text {
+        text-transform: uppercase;
+        animation: stroke 2s infinite alternate;
+        letter-spacing: 10px;
+        font-size: 128px;
+        font-family: "Chewy-Regular";
+      }
+      @keyframes stroke {
+        0% {
+          fill: rgba(245, 91, 80, 0);
+          stroke: rgba(245, 91, 80, 1);
+          stroke-dashoffset: 25%;
+          stroke-dasharray: 0 50%;
+          stroke-width: 0.5;
+        }
+        50% {
+          fill: rgba(245, 91, 80, 0);
+          stroke: rgba(245, 91, 80, 1);
+          stroke-width: 0.5;
+        }
+        70% {
+          fill: rgba(245, 91, 80, 0);
+          stroke: rgba(245, 91, 80, 1);
+          stroke-width: 1;
+        }
+        90%,
+        100% {
+          fill: rgba(245, 91, 80, 1);
+          stroke: rgba(245, 91, 80, 0);
+          stroke-dashoffset: -25%;
+          stroke-dasharray: 50% 0;
+          stroke-width: 0;
+        }
+      }
+    }
+    .skill-container {
+      flex: 1;
+      display: flex;
+      .skill-box {
+        background-color: var(--white-color);
+        margin: 8px;
+        border-radius: 8px;
+        font-family: "itim-Regular";
+        padding: 16px;
+        font-size: 24px;
+        span {
+          display: block;
+          margin-bottom: 32px;
+        }
+        .progress {
+          display: block;
+          height: 8px;
+          width: 100%;
+          background-color: #f55b5040;
+          border-radius: 8px;
+        }
+        .progress::after {
+          content: "";
+          display: block;
+          height: 8px;
+          width: 0%;
+          background-color: #f55b50;
+          border-radius: 6px;
+        }
+        .js::after {
+          animation: js 0.2s forwards infinite;
+        }
+        .vue::after {
+          animation: vue 0.2s forwards infinite;
+        }
+        .node::after {
+          animation: node 0.2s forwards infinite;
+        }
+        .css::after {
+          animation: css 0.2s forwards infinite;
+        }
+        .vite::after {
+          animation: vite 0.2s forwards infinite;
+        }
+        .micro::after {
+          animation: micro 0.2s forwards infinite;
+        }
+        @keyframes js {
+          from {
+            width: 94%;
+          }
+          to {
+            width: 95%;
+          }
+        }
+
+        @keyframes vue {
+          from {
+            width: 84%;
+          }
+          to {
+            width: 85%;
+          }
+        }
+
+        @keyframes node {
+          from {
+            width: 69%;
+          }
+          to {
+            width: 70%;
+          }
+        }
+
+        @keyframes css {
+          from {
+            width: 79%;
+          }
+          to {
+            width: 80%;
+          }
+        }
+
+        @keyframes vite {
+          from {
+            width: 49%;
+          }
+          to {
+            width: 50%;
+          }
+        }
+        @keyframes micro {
+          from {
+            width: 45%;
+          }
+          to {
+            width: 46%;
+          }
+        }
+      }
+      .skill-left {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 25%;
+        .skill-box {
+          flex: 1;
+        }
+      }
+      .skill-right {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 25%;
+        .skill-box {
+          flex: 1;
+        }
+      }
+      .photo {
+        width: 50%;
+        height: calc(100% - 16px);
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        .slide {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+        }
+        .slide1 {
+          background: url(../assets/img/WechatIMG29.jpg) no-repeat
+            rgba(255, 0, 0, 0.1);
+          left: 0%;
+          background-size: 55%;
+          background-position: center;
+          background-attachment: fixed;
+        }
+
+        .slide2 {
+          background: url(../assets/img/WechatIMG30.jpg) no-repeat
+            rgba(81, 110, 255, 0.1);
+          left: 100%;
+          background-size: 55%;
+          background-position: center;
+          background-attachment: fixed;
+        }
+      }
+    }
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    .article-title {
+      font: bold 200% Consolas, Monaco, monospace;
+      border-right: 0.1em solid;
+      width: 100%;
+      font-size: 96px;
+      color: var(--accent-color);
+      width: 14ch;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 10s steps(14, end) infinite,
+        cursor-blink 0.3s step-end infinite alternate;
+      @keyframes typing {
+        0% {
+          width: 0;
+        }
+        40% {
+          width: 14ch;
+        }
+        80% {
+          width: 14ch;
+        }
+        100% {
+          width: 0;
+        }
+      }
+      @keyframes cursor-blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+    }
+    .article-list {
+      display: flex;
+      position: relative;
+      overflow-x: scroll;
+      width: 100%;
+      scrollbar-color: #f55b50 #f5f5f5;
+      padding-top: 32px;
+      .article-box {
+        padding: 16px;
+        margin-left: -32px;
+        border-radius: 16px;
+        background: linear-gradient(85deg, #fff, #e3e6ea);
+        display: flex;
+        flex-direction: column;
+        transition: 0.2s;
+        margin: 0;
+        min-width: 240px;
+        min-height: 320px;
+        box-shadow: -32px 0 32px -23px #4b4b4b;
+        margin-bottom: 16px;
+      }
+      .article-box:hover {
+        transform: translate(-35px, -32px) rotate(0deg);
+      }
+    
+      .article-box:not(:first-child) {
+        margin-left: -32px;
       }
     }
   }
