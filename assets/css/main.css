@@ -8,7 +8,14 @@
   --base-height: 8px;
   --white-color: #fff;
 }
-
+html {
+  font-size: 16px; /* 默认根元素字体大小 */
+}
+@media (min-resolution: 2dppx) { /* 针对高分辨率显示器 */
+  html {
+    font-size: 24px; /* 调整根字体大小以提高可读性 */
+  }
+}
 body {
   margin: 0;
   padding: 0;

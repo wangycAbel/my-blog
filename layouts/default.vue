@@ -2,7 +2,7 @@
   <div class="header-box">
     <Header></Header>
   </div>
-  <div class="main-container " >
+  <div class="main-container">
     <slot />
   </div>
   <Footer></Footer>

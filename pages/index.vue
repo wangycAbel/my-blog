@@ -142,6 +142,7 @@ onBeforeUnmount(() => {
     height: calc(100vh - 65px);
     box-sizing: border-box;
     .text-box {
+      flex:1;
       .back-text {
         font-size: 136px;
         width: 100%;
@@ -160,6 +161,7 @@ onBeforeUnmount(() => {
         font-size: 112px;
         font-weight: 900;
         z-index: 10;
+        flex: 65%;
         letter-spacing: 8px;
         .line1 {
           color: var(--accent-color);
@@ -349,6 +351,9 @@ onBeforeUnmount(() => {
         font-family: "itim-Regular";
         padding: 16px;
         font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         span {
           display: block;
           margin-bottom: 32px;
@@ -549,7 +554,7 @@ onBeforeUnmount(() => {
       .article-box:hover {
         transform: translate(-35px, -32px) rotate(0deg);
       }
-    
+
       .article-box:not(:first-child) {
         margin-left: -32px;
       }
