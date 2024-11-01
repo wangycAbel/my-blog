@@ -11,9 +11,41 @@
 html {
   font-size: 16px; /* 默认根元素字体大小 */
 }
-@media (min-resolution: 2dppx) { /* 针对高分辨率显示器 */
+@media (min-resolution: 2dppx) {
+  /* 针对高分辨率显示器 */
   html {
     font-size: 24px; /* 调整根字体大小以提高可读性 */
+  }
+}
+/* 大设备（桌面，≥ 992px） */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* 针对小桌面的样式 */
+  html {
+    font-size: 16px; /* 调整根字体大小以提高可读性 */
+  }
+}
+
+/* 超大设备（桌面，≥ 1200px） */
+@media (min-width: 1200px) {
+  /* 针对大桌面的样式 */
+  html {
+    font-size: 16px; /* 调整根字体大小以提高可读性 */
+  }
+}
+
+/* 2K 分辨率（≥ 1440px） */
+@media (min-width: 1440px) {
+  /* 针对 2K 显示器的样式 */
+  html {
+    font-size: 16px; /* 调整根字体大小以提高可读性 */
+  }
+}
+
+/* 4K 分辨率（≥ 2560px） */
+@media (min-width: 2560px) {
+  /* 针对 4K 显示器的样式 */
+  html {
+    font-size: 32px; /* 调整根字体大小以提高可读性 */
   }
 }
 body {
