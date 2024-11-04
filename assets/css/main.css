@@ -48,6 +48,9 @@ html {
     font-size: 28px; /* 调整根字体大小以提高可读性 */
   }
 }
+html{
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;

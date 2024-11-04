@@ -1,5 +1,5 @@
 <template>
-  <div class="index-container">
+  <div class="index-container" ref="lenisContainer">
     <div class="section banner">
       <Back></Back>
       <div class="text-box">
@@ -84,12 +84,14 @@
         </div>
         <div class="article-box">
           <span class="date">2022-02-02</span>
-          <div class="title">test</div>
+          <div class="title">
+            testtesttesttesttesttesttesttesttesttesttesttest
+          </div>
           <div class="sort">css</div>
         </div>
         <div class="article-box">
           <span class="date">2022-02-02</span>
-          <div class="title">test</div>
+          <div class="title">测试测试测试测试测试测试</div>
           <div class="sort">css</div>
         </div>
         <div class="article-box">
@@ -99,14 +101,16 @@
         </div>
       </div>
     </div>
-    <div class="section time-pie">Time-pie</div>
-
-    <div class="section inspration">Inspration</div>
+    <div class="section inspration">
+      <div class="inpsration-title">Inspration</div>
+      <div class="inpsration-contain">
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 const slide1 = ref<HTMLElement>();
 const slide2 = ref<HTMLElement>();
 const slideBox = ref<HTMLElement>();
@@ -115,11 +119,14 @@ const slide = (e: MouseEvent): void => {
   const windowX = e.clientX;
   let x = windowX - rect!.left;
   const sliedWidth = slideBox.value?.clientWidth;
-  console.log(sliedWidth);
-  console.log(x);
   slide2.value!.style.left = -sliedWidth! + x + "px";
 };
-onMounted(() => {
+
+// 复制项目以实现无限滚动
+const waterfall = ref<HTMLElement>();
+const itemRefs = ref<(HTMLElement | null)[]>([]);
+onMounted(async () => {
+  await nextTick();
   slideBox.value?.addEventListener("mousemove", slide);
 });
 onBeforeUnmount(() => {
@@ -142,7 +149,7 @@ onBeforeUnmount(() => {
     height: calc(100vh - 65px);
     box-sizing: border-box;
     .text-box {
-      flex:1;
+      flex: 1;
       .back-text {
         font-size: 136px;
         width: 100%;
@@ -346,6 +353,7 @@ onBeforeUnmount(() => {
       flex: 1;
       display: flex;
       .skill-box {
+        cursor: pointer;
         background-color: var(--white-color);
         margin: 8px;
         border-radius: 8px;
@@ -355,6 +363,7 @@ onBeforeUnmount(() => {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
         span {
           display: block;
           margin-bottom: 32px;
@@ -362,7 +371,7 @@ onBeforeUnmount(() => {
         .progress {
           display: block;
           height: 8px;
-          width: 100%;
+          width: 60%;
           background-color: #f55b5040;
           border-radius: 8px;
         }
@@ -445,6 +454,7 @@ onBeforeUnmount(() => {
           }
         }
       }
+
       .skill-left {
         display: flex;
         flex-direction: column;
@@ -540,25 +550,65 @@ onBeforeUnmount(() => {
       padding-top: 32px;
       .article-box {
         padding: 16px;
-        margin-left: -32px;
         border-radius: 16px;
-        background: linear-gradient(85deg, #fff, #e3e6ea);
+        background: #ffffff;
         display: flex;
         flex-direction: column;
         transition: 0.2s;
         margin: 0;
-        min-width: 240px;
-        min-height: 320px;
-        box-shadow: -32px 0 32px -23px #4b4b4b;
+        height: 240px;
         margin-bottom: 16px;
+        margin-right: 16px;
+        border: 8px dashed var(--primary-color);
+        cursor: pointer;
+        .date {
+          font-size: 16px;
+          color: var(--text-color);
+        }
+        .title {
+          font-size: 32px;
+          font-weight: 700;
+          color: var(--primary-color);
+          font-family: "itim-Regular" sans-serif;
+          width: 180px;
+          line-height: 32px;
+          max-height: 64px;
+          overflow: hidden;
+          word-wrap: break-word;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          -webkit-line-clamp: 2; /* 可根据需要修改行数 */
+        }
+        .sort {
+          font-size: 16px;
+          color: var(--text-color);
+        }
       }
       .article-box:hover {
-        transform: translate(-35px, -32px) rotate(0deg);
+        transform: translate(0, -32px) rotate(0deg);
+        border: 8px dashed #f55b50;
+        .title {
+          color: #f55b50;
+        }
       }
-
-      .article-box:not(:first-child) {
-        margin-left: -32px;
-      }
+    }
+  }
+  .inspration {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    .inpsration-title {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      color: #f55b50; /* 字体颜色 */
+      font-size: 200px;
+      text-align: center;
+      font-weight: 900;
+      z-index: 0;
+      letter-spacing: 8px;
     }
   }
 }
