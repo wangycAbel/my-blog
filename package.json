@@ -13,7 +13,7 @@
     "@nuxt/content": "^2.13.4",
     "animate.css": "^4.1.1",
     "autoprefixer": "^10.4.20",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.14.0",
     "postcss": "^8.4.47",
     "postcss-custom-properties": "^14.0.3",
     "postcss-nested": "^6.2.0",

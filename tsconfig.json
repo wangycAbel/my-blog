@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@nuxt/content", "@types/node"],
+    "types": [ "@types/node"],
     "target": "esnext",
     "module": "esnext",
     "strict": true,

@@ -3,17 +3,16 @@ import { defineNuxtConfig } from "nuxt/config";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxt/content-edge", "@nuxt/icon"],
+  modules: ["@nuxt/content-edge", "@nuxt/icon", "@nuxt/content"],
+  content:{},
   imports: {
     autoImport: true, // 确保开启自动导入功能
   },
-
   css: [
     "animate.css",
     "@/assets/css/main.css", // 引入全局样式
     "@/assets/css/font.css",
   ],
-
   postcss: {
     plugins: {
       "postcss-pxtorem": {

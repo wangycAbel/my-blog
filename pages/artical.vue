@@ -1,11 +1,7 @@
 <template>
-  <div>article</div>
+  <div>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { useRoute } from "vue-router";
-const route = useRoute();
-console.log(route.path)
+<script setup lang="ts">
 </script>
-
-<style scoped></style>

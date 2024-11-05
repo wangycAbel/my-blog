@@ -103,7 +103,39 @@
     </div>
     <div class="section inspration">
       <div class="inpsration-title">Inspration</div>
-      <div class="inpsration-contain">
+      <div class="inspration-contianer waterfall1">
+        <div class="inspration-box">
+          <img src="../assets/album/1.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/2.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/3.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/4.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/5.jpg" alt="" />
+        </div>
+      </div>
+      <div class="inspration-contianer waterfall2">
+        <div class="inspration-box">
+          <img src="../assets/album/1.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/2.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/3.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/4.jpg" alt="" />
+        </div>
+        <div class="inspration-box">
+          <img src="../assets/album/5.jpg" alt="" />
+        </div>
       </div>
     </div>
   </div>
@@ -122,9 +154,6 @@ const slide = (e: MouseEvent): void => {
   slide2.value!.style.left = -sliedWidth! + x + "px";
 };
 
-// 复制项目以实现无限滚动
-const waterfall = ref<HTMLElement>();
-const itemRefs = ref<(HTMLElement | null)[]>([]);
 onMounted(async () => {
   await nextTick();
   slideBox.value?.addEventListener("mousemove", slide);
@@ -600,15 +629,75 @@ onBeforeUnmount(() => {
     overflow: hidden;
     height: 100vh;
     .inpsration-title {
+      z-index: 10;
       position: absolute;
       left: 0;
-      top: 10%;
+      top: 50%;
+      transform: translateY(-50%);
       color: #f55b50; /* 字体颜色 */
-      font-size: 200px;
+      font-size: 240px;
       text-align: center;
       font-weight: 900;
       z-index: 0;
       letter-spacing: 8px;
+    }
+    .waterfall1 {
+      top: 32px;
+      animation: scroll1 15s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+    .waterfall2 {
+      bottom: 32px;
+      animation: scroll2 15s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+    .inspration-contianer {
+      position: absolute;
+      height: 30%;
+      left: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      .inspration-box {
+        margin-right: 16px;
+        display: block;
+        height: 100%;
+        cursor: pointer;
+        overflow: hidden;
+        img {
+          display: block;
+          height: 100%;
+        }
+        &:hover img{
+          transform: scale(1.2)
+        }
+      }
+      @keyframes scroll1 {
+        0% {
+          transform: translateX(50%);
+        }
+        50% {
+          transform: translateX(-50%); /* 向左滚动一半 */
+        }
+        100% {
+          transform: translateX(50%);
+        }
+      }
+      @keyframes scroll2 {
+        0% {
+          transform: translateX(-50%);
+        }
+        50% {
+          transform: translateX(50%); /* 向左滚动一半 */
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
     }
   }
 }
