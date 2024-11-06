@@ -1,12 +1,12 @@
 interface PhotoItem {
-  url: string; // 图片链接
+  url: any; // 图片链接
   desc: string; // 图片描述
   link: string; // 关联链接
 }
 type PhotoList = PhotoItem[];
 const photoList: PhotoList = [
   {
-    url: "/_nuxt/assets/album/1.jpg",
+    url: '/photo/1.jpg',
     desc: "listlistlistlistlistlistlistlistlistlistlistlistlistlistlistlistlistlist",
     link: "https://www.baidu.com",
   },
