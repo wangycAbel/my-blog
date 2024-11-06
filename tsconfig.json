@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": [ "@types/node"],
+    "types": ["@types/node","@types/node"],
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -8,6 +8,21 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "baseUrl": ".", // 项目根目录
+    "paths": {
+      "@/*": ["src/*"] // 配置路径别名
+    },
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": [
+    ".nuxt",
+    "nuxt.config.ts",
+    "app.vue",
+    "components/**/*.vue",
+    "assets/**/*.ts",
+    "pages/**/*.vue",
+    "composables/**/*.ts",
+    "plugins/**/*.ts",
+    "types/**/*.ts"
+  ]
 }

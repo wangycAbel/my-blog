@@ -3,8 +3,7 @@ import { defineNuxtConfig } from "nuxt/config";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxt/content-edge", "@nuxt/icon", "@nuxt/content"],
-  content:{},
+  modules: ["@nuxt/icon", "@nuxt/content"],
   imports: {
     autoImport: true, // 确保开启自动导入功能
   },
@@ -29,4 +28,10 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-10-29",
+  app: {
+    head: {
+      title: "Abel·Front End Roamer",
+      meta: [{ name: "description", content: "默认描述内容" }],
+    },
+  },
 });

@@ -72,69 +72,38 @@
     <div class="section article">
       <div class="article-title">Recent Article</div>
       <div class="article-list">
-        <div class="article-box">
-          <span class="date">2022-02-02</span>
-          <div class="title">test</div>
-          <div class="sort">css</div>
-        </div>
-        <div class="article-box">
-          <span class="date">2022-02-02</span>
-          <div class="title">test</div>
-          <div class="sort">css</div>
-        </div>
-        <div class="article-box">
-          <span class="date">2022-02-02</span>
-          <div class="title">
-            testtesttesttesttesttesttesttesttesttesttesttest
+        <ContentList v-slot="{ list }">
+          <div
+            v-for="article in list"
+            :key="article._path"
+            class="article-box"
+            @click="articleDetail(article._path)"
+          >
+            <span class="date">{{ article.date }}</span>
+            <div class="title">{{ article.name }}</div>
+            <div class="sort">{{ article._dir }}</div>
           </div>
-          <div class="sort">css</div>
-        </div>
-        <div class="article-box">
-          <span class="date">2022-02-02</span>
-          <div class="title">测试测试测试测试测试测试</div>
-          <div class="sort">css</div>
-        </div>
-        <div class="article-box">
-          <span class="date">2022-02-02</span>
-          <div class="title">test</div>
-          <div class="sort">css</div>
-        </div>
+        </ContentList>
       </div>
     </div>
     <div class="section inspration">
       <div class="inpsration-title">Inspration</div>
       <div class="inspration-contianer waterfall1">
-        <div class="inspration-box">
-          <img src="../assets/album/1.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/2.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/3.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/4.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/5.jpg" alt="" />
+        <div
+          class="inspration-box"
+          v-for="item in list"
+          @click="openWeb(item.link)"
+        >
+          <img :src="item.url" alt="" />
         </div>
       </div>
       <div class="inspration-contianer waterfall2">
-        <div class="inspration-box">
-          <img src="../assets/album/1.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/2.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/3.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/4.jpg" alt="" />
-        </div>
-        <div class="inspration-box">
-          <img src="../assets/album/5.jpg" alt="" />
+        <div
+          class="inspration-box"
+          v-for="item in list"
+          @click="openWeb(item.link)"
+        >
+          <img :src="item.url" alt="" />
         </div>
       </div>
     </div>
@@ -143,6 +112,13 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import photoList from "@/assets/album/photo";
+const list = photoList;
+const openWeb = (url: string) => {
+  window.open(url, "_blank");
+};
+let router = useRouter();
 const slide1 = ref<HTMLElement>();
 const slide2 = ref<HTMLElement>();
 const slideBox = ref<HTMLElement>();
@@ -161,6 +137,10 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   slideBox.value?.removeEventListener("mousemove", slide);
 });
+
+const articleDetail = (fullPath: string) => {
+  router.push(`${fullPath}`);
+};
 </script>
 
 <style scoped>
@@ -583,6 +563,7 @@ onBeforeUnmount(() => {
         background: #ffffff;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         transition: 0.2s;
         margin: 0;
         height: 240px;
@@ -668,12 +649,13 @@ onBeforeUnmount(() => {
         height: 100%;
         cursor: pointer;
         overflow: hidden;
+        transition: transform 5s ease;
         img {
           display: block;
           height: 100%;
         }
-        &:hover img{
-          transform: scale(1.2)
+        &:hover img {
+          transform: scale(1.2);
         }
       }
       @keyframes scroll1 {
