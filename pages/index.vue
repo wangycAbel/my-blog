@@ -113,7 +113,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import photoList from "@/assets/album/photo";
+import photoList from "../source/photo";
 const list = photoList;
 const openWeb = (url: string) => {
   window.open(url, "_blank");

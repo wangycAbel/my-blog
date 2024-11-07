@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@types/node","@types/node"],
+    "types": ["@types/node"],
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "baseUrl": ".", // 项目根目录
     "paths": {
+      "/*": ["./*"],
       "@/*": ["src/*"] // 配置路径别名
     },
     "forceConsistentCasingInFileNames": true

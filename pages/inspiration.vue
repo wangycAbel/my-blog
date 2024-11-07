@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
-import photoList from "@/assets/album/photo";
+import photoList from "../source/photo";
 const list = photoList;
 const openWeb = (url: string) => {
   window.open(url, "_blank");
@@ -76,6 +76,8 @@ const openWeb = (url: string) => {
         }
       }
       .img-box {
+        height: 100%;
+        width: 100%;
         overflow: hidden;
         img {
           width: 100%;
@@ -92,7 +94,7 @@ const openWeb = (url: string) => {
         color: #fff;
         flex: 1;
         padding: 8px;
-        background-color: #f55b50;
+        background-color: #f55b5099;
         opacity: 0;
         width: 100%;
         height: 100%;
@@ -100,6 +102,8 @@ const openWeb = (url: string) => {
         box-sizing: border-box;
         transform-origin: right bottom;
         transform: rotate(-45deg);
+        display: flex;
+        align-items: center;
       }
     }
   }

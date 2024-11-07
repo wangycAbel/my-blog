@@ -12,18 +12,20 @@
         <div class="date">{{ article.date }}</div>
       </div>
       <div class="right">
-        <img src="../assets/album/1.jpg" alt="" />
+        <img :src="article.img" alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+/* eslint-disable @typescript-eslint/ts-comment */
+// @ts-ignore
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 let router = useRouter();
 const { data } = await useAsyncData("home", () => queryContent().find());
-
+console.log(data)
 const articleDetail = (fullPath: string) => {
   router.push(`${fullPath}`);
 };
@@ -44,6 +46,8 @@ const articleDetail = (fullPath: string) => {
     display: flex;
     .left {
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .right {
       width: 210px;
@@ -65,13 +69,16 @@ const articleDetail = (fullPath: string) => {
       font-size: 36px;
       text-decoration: underline;
       text-decoration-color: #a2dffb;
-      margin-bottom: 24px;
       color: var(--primary-color);
     }
     .desc {
       font-size: 22px;
       color: var(--text-color);
-      margin-bottom: 24px;
+      flex:1;
+      align-items: center;
+      display: flex;
+      padding:  24px 0;
+      box-sizing: border-box;
     }
     .date {
       margin-bottom: 24px;

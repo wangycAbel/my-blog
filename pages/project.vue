@@ -1,57 +1,24 @@
 <template>
   <div class="project-container">
-    <div class="project-line">
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
+    <div class="project-line" v-for="line in list">
+      <div class="project-box" v-for="box in line" @click="openWeb(box.link)">
+        <div class="name">{{ box.name }}</div>
+        <div class="tech">{{ box.type }}</div>
         <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
-        <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
-        <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="project-line">
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
-        <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
-        </div>
-      </div>
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
-        <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="project-line">
-      <div class="project-box">
-        <div class="name">my-blog</div>
-        <div class="tech">Nuxt3</div>
-        <div class="img">
-          <img src="../assets/img/skill-icons--nuxtjs-dark.png" alt="" />
+          <img :src="box.icon" alt="" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import projectlist from "../source/project";
+const list = projectlist;
+const openWeb = (url: string) => {
+  window.open(url, "_blank");
+};
+</script>
 
 <style scoped>
 .project-container {
